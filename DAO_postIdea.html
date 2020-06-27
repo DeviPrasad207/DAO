@@ -24,8 +24,8 @@
   }
 
   body {
-    padding: 20px;
-    margin: 50px;
+   padding: 20px;
+   
   }
 
   .schedule {
@@ -33,11 +33,162 @@
     padding: center;
   	  }
 </style>
+
+<!--JS code for the DAO post idea page-->
+<script type="text/javascript">
+	
+function doSubmit()
+				    {
+					if (validateText() && validateRadio())
+					{
+						var confirmation = "";
+						confirmation += "Innovation!!.<br /><br />";
+						confirmation += "Idea Title   : " + document.PostIdeaForm.ideatitle.value + "<br />";
+						confirmation += "Idea by: " + document.PostIdeaForm.ideaby.value + "<br />";
+						confirmation += "Problem: " + document.PostIdeaForm.problem.value + "<br />";
+						confirmation += "Solution: " + document.PostIdeaForm.solution.value + "<br />";
+						confirmation += "Estimated Cost: " + document.PostIdeaForm.estcost.value + "<br />";
+						confirmation += "Duration: " + document.PostIdeaForm.duration.value + "<br />";
+						confirmation += "Distribution Cost: " + document.PostIdeaForm.distributionCost.value + "<br />";
+						confirmation += "Key Points: " + document.PostIdeaForm.keyPoints.value + "<br />";
+						confirmation += "Your idea has been posted!!.<br /><br />";
+     					document.write(confirmation);
+				    }
+					return;
+				    }
+
+function validateText()
+				  {
+					var transcribed = true;
+					var notification = "";
+					var ideatitle = document.PostIdeaForm.ideatitle.value;
+					var ideaby = document.PostIdeaForm.ideaby.value;	
+					var problem = document.PostIdeaForm.problem.value;
+					var solution = document.PostIdeaForm.solution.value;
+					var estcost = document.PostIdeaForm.estcost.value;
+					var duration = document.PostIdeaForm.duration.value;
+					var distributionCost1 = document.PostIdeaForm.distributionCost1.value;
+					var keyPoints = document.PostIdeaForm.keyPoints.value;
+					var days = document.PostIdeaForm.days.value;
+					var hours = document.PostIdeaForm.hours.value;
+					var mins = document.PostIdeaForm.mins.value;
+					var topic = document.PostIdeaForm.topic.value;
+				
+				if (ideatitle.length == 0) 
+					{
+						transcribed = false;
+						notification += "Please fill the title.\n";
+					}
+				if (ideaby.length == 0) 
+					{
+						transcribed = false;
+						notification += "Please enter the innovator name.\n";
+					}
+				if (problem.length == 0) 
+					{
+						transcribed = false;
+						notification += "Please enter the problem description.\n";
+					}		
+				if (ideatitle.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Please enter idea title.\n";
+                    }
+                if (ideaby.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Please enter the innovator name.\n";
+                    }
+                if (problem.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Please enter the problem.\n";
+                    }
+                if (solution.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Please enter the solution.\n";
+                    }
+                if (estcost.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Please enter the estimated cost.\n";
+                    }
+                if (duration.length == 0)
+                    {
+                        transcribed = false;
+                        notification += "Phone enter the total duration.\n";
+                    }
+                if (distributionCost1.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter the estimated distribution cost.\n";
+                    }
+                if (keyPoints.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter the key points.\n";
+                    }
+                if (days.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter total number of days.\n";
+                    }
+                if (hours.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter total number of hours.\n";
+                    }
+                if (mins.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter total number of minutes.\n";
+                    }
+                if (topic.length == 0)
+                                    {
+                        transcribed = false;
+                        notification += "Please enter the description of the Topic.\n";
+                    }		
+				if (!transcribed)
+					{
+						alert(notification);
+					}
+					
+					return transcribed;
+				}
+
+//Function to validate radio button
+				function validateRadio()
+				{
+					var highlighted = false; 
+					
+					if (document.PostIdeaForm.radio[0].checked)
+					{
+						highlighted = true;
+					}
+					if (document.PostIdeaForm.radio[1].checked)
+					{
+						highlighted = true;
+					}
+					if (document.PostIdeaForm.radio[2].checked)
+					{
+						highlighted = true;
+					}										
+					if (!highlighted)
+					{
+						alert("Please select the type calender invite.");
+					}
+					
+					return highlighted;
+				}
+
+</script>
+
 </head>
 
 <body>
 <div class="container">
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse">
 		<a href="#" class ="navbar-brand">DXC DAO</a>
 	    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
 	      <span class="navbar-toggler-icon"></span>
@@ -65,7 +216,7 @@
 	    	</ul>
 		</div>
     </nav>
-
+<br />
 <form name="PostIdeaForm"> 
 <p></p>
 <h3>New Innovation</h3>      
@@ -75,25 +226,22 @@
 <input type="text" size="50" name="ideatitle" id="ideatitle" class="form-control">
  
 <label for="ideaby">Idea by</label>
-<input type="text" name="ideaby" id="ideatitle" class="form-control">
+<input type="text" name="ideaby" id="ideaby" class="form-control">
 
 <label for="problem">Problem:</label>
-<input type="text" name="Problem" id="Problem" class="form-control">
+<input type="text" name="problem" id="problem" class="form-control">
 
 <label for="solution">Solution (end product):</label>
 <input type="text" name="solution" id="solution" class="form-control">
 
 <label for="estcost">Estimated cost:</label>
-<input type="text" name="estcost" id="estcost" class="form-control">  
-
-<label for="estcost">Estimated cost:</label>
-<input type="text" name="estcost" id="estcost" class="form-control"> 
+<input type="number" name="estcost" id="estcost" placehoder="CRE8s" class="form-control">  
 
 <label for="duration">Duration:</label>
 <input type="text" name="duration" id="duration" class="form-control"> 
 
 <label for="distributionCost">Distribution of Cost:</label>
-<input type="text" name="distributionCost" id="distributionCost" class="form-control"><br> 
+<input type="text" name="distributionCost1" id="distributionCost1" class="form-control"><br> 
 <input type="text" name="distributionCost" id="distributionCost" class="form-control"><br>
 <input type="text" name="distributionCost" id="distributionCost" class="form-control"><br>
 <input type="text" name="distributionCost" id="distributionCost" class="form-control"><br>
@@ -101,6 +249,7 @@
 <input type="text" name="distributionCost" id="distributionCost" class="form-control"><br>
 
 <div>
+	
 	<button type="button" class="btn btn-warning">Add Resources <i class="fas fa-plus-circle"></i></button>
 </div>
 <br>
@@ -110,6 +259,7 @@
 <h3>Bidding Time Window</h3>
 
  Days:<br> <select name="days" size="1" type="dropdown">
+ 	<option value="select">select</option>
  	<option value="1">1</option>
  	<option value="2">2</option>
  	<option value="3">3</option>
@@ -128,6 +278,9 @@
  </select>
 <br>
  Hours:<br> <select name="hours" size="1" type="dropdown">
+ 	<!--<input type="time" id="hours" name="hours"
+       min="00:00" max="24:00" required>-->
+ 	<option value="select">select</option>
  	<option value="1">1</option>
  	<option value="2">2</option>
  	<option value="3">3</option>
@@ -146,6 +299,7 @@
  </select>
 <br>
  Mins:<br> <select name="mins" size="1" type="dropdown">
+ 	<option value="select">select</option>
  	<option value="1">1</option>
  	<option value="2">2</option>
  	<option value="3">3</option>
@@ -169,35 +323,33 @@
 <label for="topic">Topic:</label>
 <input type="text" name="topic" id="topic" class="form-control"> 
 
-<label for="topic">Start time</label>
- <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-</div>
 <br>
- <label for="topic">End time</label>
- <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-</div>
-<br><br>
- <h4>Calender</h4>
-	<input type="radio" id="outlook"name="outlook" value="outlook">
+<p>
+<label for="starttime">Start time:-</label><br>
+<input type="date" id="starttime" name="starttime">
+</p>
+
+<p>
+<label for="endtime">End time:-</label><br>
+<input type="date" id="endtime" name="endtime">
+</p>
+
+<h4>Calender</h4>
+	<input type="radio" id="outlook" name="radio" value="outlook">
 	<label for="radio">Outlook</label>
 	
-	<input type="radio" id="google"name="google" value="google">
+	<input type="radio" id="google" name="radio" value="google">
 	<label for="radio">Google</label>
 
-	<input type="radio" id="other"name="other" value="other">
+	<input type="radio" id="other" name="radio" value="other">
 	<label for="radio">Other</label>
-<br>
 
 <p></p>
 <!--input to call functions
 <input type="button" value="PostIDea" onclick="doSubmit()"> -->
 <button type="button" value="PostIDea" class="btn btn-info" onclick="doSubmit()">Post Idea <i class="fas fa-file-upload"></i></button>
 <!--To clear entries in future requirement
-	<input type="button" value="Clear Entries" onclick="doClear()">-->
+<input type="button" value="Clear Entries" onclick="doClear()">-->
 
 </form> 
 
